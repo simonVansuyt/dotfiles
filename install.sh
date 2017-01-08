@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # moving the files to homedirectory
-for file in .{bash_profile,bash_prompt,aliases,exports}; do
+for file in .{bash_profile,bashrc,bash_prompt,aliases,exports}; do
   # adding while so you don't skip some importan files
   while true; do
     # asking the question 
