@@ -16,7 +16,6 @@ for file in .{bash_profile,bashrc,bash_prompt,aliases,exports}; do
 	echo -e "\x1B[0;32m [*] \x1B[0mAllons-y, Geronimo!"
 	# moving the file
 	mv -f dfiles/${file} ${dfile}
-	[ -f ${dfile} ]&& source ${dfile}
 	break
 	;;
       [nN])
@@ -30,3 +29,5 @@ for file in .{bash_profile,bashrc,bash_prompt,aliases,exports}; do
     esac
   done
 done
+
+[ -n ${PS1} ] && source ~/.bash_profile
