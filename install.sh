@@ -14,7 +14,7 @@ for file in .{bash_profile,bash_prompt,aliases,exports}; do
 	# he said yes
 	echo -e "\x1B[0;32m [*] \x1B[0mAllons-y, Geronimo!"
 	# moving the file
-	mv -f files/${file} ~/${file}
+	mv -f dfiles/${file} ~/${file}
 	break
 	;;
       [nN])
