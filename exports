@@ -1,4 +1,0 @@
-# VIM as default
-export EDITOR='vim'
-# Colors in Vim.
-export TERM='xterm-256color'
