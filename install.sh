@@ -31,3 +31,16 @@ for file in .{bash_profile,bashrc,bash_prompt,aliases,exports}; do
 done
 
 [ -n ${PS1} ] && source ~/.bash_profile
+
+# installing some packages
+packages=(
+  'git-core'
+  'vim'
+  'vlc'
+  'chromium'
+  'haskell-platform'
+)
+
+for item in packages; do
+  apt-get install $item
+done
