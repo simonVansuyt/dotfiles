@@ -1,5 +1,5 @@
 # dotfiles
-This my dotfile configuration for linux distros.
+This my dotfile configuration for Debian and Ubuntu.
 ## Instalation
 If you have git installed you can use:
 ```shell
