@@ -1,5 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =3
-let g:netrw_dirhist_1='/Users/RYCBvansuyt/node_modules/popper.js'
-let g:netrw_dirhist_2='/Users/RYCBvansuyt/npm-test'
-let g:netrw_dirhist_3='/Users/RYCBvansuyt/.hyper_plugins'

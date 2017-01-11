@@ -15,7 +15,7 @@ for file in .{bash_profile,bashrc,bash_prompt,aliases,exports,functions}; do
 	# he said yes
 	echo -e "\x1B[0;32m [*] \x1B[0mAllons-y, Geronimo!"
 	# moving the file
-	mv -f dfiles/${file} ${dfile}
+	cp -f dfiles/${file} ${dfile}
 	break
 	;;
       [nN])
@@ -30,4 +30,4 @@ for file in .{bash_profile,bashrc,bash_prompt,aliases,exports,functions}; do
   done
 done
 
-[ -n ${PS1} ] && source ~/.bash_profile
+source ~/.bash_profile

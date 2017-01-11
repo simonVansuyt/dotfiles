@@ -7,6 +7,7 @@ apt-get upagrade
 packages=(
   'vim'
   'git-all'
+  'chromium-browser'
 )
 
 for pack in $packages; do
