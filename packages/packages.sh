@@ -8,6 +8,8 @@ packages=(
   'vim'
   'git-all'
   'chromium-browser'
+  'xbacklight'
+  'xbindkeys'
 )
 
 for pack in $packages; do
