@@ -1,6 +1,18 @@
 #!/bin/bash
 
+# create .dotfiles folder in ~
+[ ! -d ~/.dotfiles ] && mkdir -p "~/.dotfiles"
+# create backupfolder based on time
+backupFolder=~/.dotfiles/$(date +%m)-$(date +%d)-$(date +%Y)-$(date +%T)
+mkdir -p $backupFolder
+shopt -s dotglob # enable copying . files
+cp -rf ~/.[^.]* ${backupFoler}/
+echo -e "Your default . files are backedup in \x1B[0;31m${backupFolder}/\x1B[0m folder"
+unset backupFolder
+
+# let install the dfiles
 source "dfiles/dfiles.sh"
+
 sudoAvail= groups | grep -c sudo
 # check if sudo option is available
 if [ "${sudoAvail}" == "0" ]; then
