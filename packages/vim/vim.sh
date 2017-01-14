@@ -16,7 +16,7 @@ if type vim >/dev/null 2>/dev/null; then
   if [ -d ~/.vim ] && [ -f ~/.vimrc ]; then
     while true; do
       # ask to overwrite
-      read -r -p "There is all ready a vim setup do you want a to overwrite it? [Y/n]" reply
+      read -r -p "There is all ready a vim setup do you want a to overwrite it? [Y/n] " reply
       case $reply in
 	[Yy])
 	  copyVimFiles
