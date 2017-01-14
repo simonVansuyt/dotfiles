@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # upadate and upgrade
-apt-get update
-apt-get upagrade
+# apt-get update
+# apt-get upagrade
 
 packages=('vim' 'git-all' 'chromium-browser' 'xbacklight' 'xbindkeys')
 
@@ -11,6 +11,5 @@ for pack in "${packages[@]}"; do
   apt-get install $pack
   
   # check if there is a extra  configuration for packge
-  $packfolder="${pack}/${pack}.sh"
-  [ -f $packfolder ] &&  source "$packfolder" 
+  [ -f "./${pack}/${pack}.sh" ] && source "./${pack}/${pack}.sh"
 done
