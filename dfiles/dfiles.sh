@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # moving the files to homedirectory
-for file in .{bash_profile,bashrc,bash_prompt,aliases,exports,functions}; do
+for file in .{bash_profile,bashrc,bash_prompt,aliases,exports,functions,extra}; do
   dfile=~/${file}
   # adding while so you don't skip some importan files
   while true; do
