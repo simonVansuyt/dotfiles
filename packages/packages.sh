@@ -1,11 +1,25 @@
 #!/bin/bash
 
+ppa=(
+  'gnome-terminator'
+)
+for repo in "${ppa[@]}"; do
+  sudo add-apt-repository ppa:$repo
+done
+
 # upadate and upgrade
-# apt-get update
-# apt-get upagrade
+apt-get update
+apt-get upagrade
 
-packages=('vim' 'git-all' 'chromium-browser' 'xbacklight' 'xbindkeys')
-
+packages=(
+  'vim'
+  'git-all'
+  'chromium-browser'
+  'xbacklight'
+  'xbindkeys'
+  'haskell-platform'
+  'gnome-terminator'
+)
 for pack in "${packages[@]}"; do
   # install packages with apt-get
   apt-get install $pack

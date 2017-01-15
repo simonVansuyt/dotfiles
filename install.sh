@@ -6,8 +6,9 @@
 backupFolder=~/.dotfiles/$(date +%m)-$(date +%d)-$(date +%Y)-$(date +%T)
 mkdir -p $backupFolder
 shopt -s dotglob # enable copying . files
-cp -rf ~/.[^.]* ${backupFoler}/
-echo -e "Your default . files are backedup in \x1B[0;31m${backupFolder}/\x1B[0m folder"
+# copying the files
+cp -rf ~/.[^.]* $backupFoler/
+echo -e "Your default . files are copyed in \x1B[0;31m${backupFolder}/\x1B[0m folder"
 unset backupFolder
 
 # let install the dfiles
@@ -25,6 +26,6 @@ sudo source "packages/packages.sh"
 # kill firefox and remove
 if [ command -v firefox 2> /dev/null ]; then
   echo "removing firefox..."
-  killall firefox # without my cause error
+  killall firefox # without can cause error
   sudo apt-get remove --purge firefox
 fi
