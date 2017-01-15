@@ -2,7 +2,6 @@
 
 # moving the files to homedirectory
 for file in .{bash_profile,bashrc,bash_prompt,aliases,exports,functions,extra}; do
-  dfile=~/${file}
   # adding while so you don't skip some importan files
   while true; do
     # asking the question 
@@ -15,7 +14,7 @@ for file in .{bash_profile,bashrc,bash_prompt,aliases,exports,functions,extra}; 
 	# he said yes
 	echo -e "\x1B[0;32m [*] \x1B[0mAllons-y, Geronimo!"
 	# moving the file
-	cp -f dfiles/${file} ${dfile}
+	cp -f ./dfiles/${file} ~/${file}
 	break
 	;;
       [nN])

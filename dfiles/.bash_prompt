@@ -13,7 +13,7 @@ _bash_prompt_config() {
     local BOLD="$( { tput bold || tput md ; } 2>/dev/null )"
   else
     # Fallback
-    _setaf () { echo "\033[0;$(($1+30))m" ; }
+    _setaf () { echo -e "\033[0;$(($1+30))m" ; }
     local RESET="\033[m"
     local BOLD=""
     ESC_OPEN=""
@@ -49,14 +49,13 @@ _bash_prompt_config() {
   local WHITE_BOLD="${ESC_OPEN}${BOLD}$(_setaf 7)${ESC_CLOSE}"
 
   # Expose the variables we need in prompt command
-  P_USER=${BRIGHT_GREEN}${USER_SYMBOL}
-  P_HOST=${CYAN}${HOST_SYMBOL}
-  P_WHITE=${WHITE}
-  P_GREEN=${BRIGHT_GREEN}
-  P_YELLOW=${YELLOW}
-  P_RED=${RED}
-  P_RESET=${RESET}
-
+  USER=${RED_BOLD}${USER_SYMBOL}
+  at="${RESET}@"
+  HOST=${GREEN}${HOST_SYMBOL}
+  in="${RESET}: ${YELLOW}"
+  on=" ${BLUE}"
+  extend="${RESET}$ "
+  
 }
 
 bash_prompt_command() {
@@ -66,15 +65,15 @@ bash_prompt_command() {
   local MAXLENGTH=35
   local TRUNC_SYMBOL=".."
   local DIR=${PWD##*/}
-  local P_PWD=${PWD/#$HOME/\~}
+  local PWD=${PWD/#$HOME/\~}
 
   MAXLENGTH=$(( ( MAXLENGTH < ${#DIR} ) ? ${#DIR} : MAXLENGTH ))
 
   local OFFSET=$(( ${#P_PWD} - MAXLENGTH ))
 
   if [ ${OFFSET} -gt "0" ]; then
-    P_PWD=${P_PWD:$OFFSET:$MAXLENGTH}
-    P_PWD=${TRUNC_SYMBOL}/${P_PWD#*/}
+    PWD=${P_PWD:$OFFSET:$MAXLENGTH}
+    PWD=${TRUNC_SYMBOL}/${P_PWD#*/}
   fi
 
   # Update terminal title
@@ -83,19 +82,14 @@ bash_prompt_command() {
   fi
 
   # Parse Git branch name
-  P_GIT=$(parse_git_branch)
+  GIT=$(parse_git_branch)
 
-  # Exit code
-  if [[ $EXIT_CODE != 0 ]]; then
-    P_EXIT+="${P_RED}✘ "
-  fi
-
-  PS1="${P_EXIT}${P_USER}${P_BLUE}@${P_HOST} ${P_YELLOW}${P_PWD}${P_GREEN}${P_GIT}${P_YELLOW} $ ${P_RESET}"
+  PS1="${USER}$at${HOST}$in${PWD}${on}${GIT}${extend}"
 }
 
 parse_git_branch() {
   local OUT=`git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'`
-  if [ "$OUT" != "" ]; then echo " $OUT"; fi
+  if [ "$OUT" != "" ]; then echo "[$OUT] "; fi
 }
 
 _bash_prompt_config
