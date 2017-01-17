@@ -25,5 +25,5 @@ for pack in "${packages[@]}"; do
   apt-get install $pack
   
   # check if there is a extra  configuration for packge
-  [ -f "./${pack}/${pack}.sh" ] && source "./${pack}/${pack}.sh"
+  [ -f "./packages/${pack}/${pack}.sh" ] && source "./packages/${pack}/${pack}.sh"
 done
