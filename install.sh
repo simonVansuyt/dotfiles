@@ -30,3 +30,6 @@ if [ command -v firefox 2> /dev/null ]; then
   killall firefox # without can cause error
   sudo apt-get remove --purge firefox
 fi
+
+# the npm prefix
+sudo chown -R $(whoami) /usr/local/{lib, bin, share}
