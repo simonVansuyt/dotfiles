@@ -19,6 +19,7 @@ packages=(
   'xbacklight'
   'xbindkeys'
   'haskell-platform'
+  'terminator'
   'gnome-terminator'
 )
 for pack in "${packages[@]}"; do
