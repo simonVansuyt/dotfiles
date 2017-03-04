@@ -12,6 +12,7 @@ apt-get update
 apt-get upagrade
 
 packages=(
+  'tasksel'
   'vim'
   'git-all'
   'chromium-browser'
