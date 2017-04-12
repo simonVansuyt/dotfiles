@@ -3,7 +3,7 @@
 # this function copy's the files to ~
 copyVimFiles() {
   if [ -f ./.vimrc ] && [ -d ./.vim ]; then
-    cp -f .vimrc .vim ~
+    cp -f ./.vimrc ./.vim ~
     echo -e "\x1B[0;32m [*] Vim is ready to go \x1B[0m"
   else
     echo -e "\x1B[0;31m [*] Sorry somthing went wrong \x1B[0m"
