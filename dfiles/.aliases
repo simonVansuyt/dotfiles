@@ -20,6 +20,10 @@ alias l="ls -lF --color"
 alias la="ls -laF --color"
 alias lsd="ls -lF --color | grep --color=never '^d'"
 alias ls="command ls --color"
+
+#grep
+alias grep="grep --color"
+
 # # #
 # di = directory
 # fi = file
