@@ -1,2 +1,7 @@
 # this a extra file
 # feel free to add thing you want
+
+# VTE Configuration
+if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
+        source /etc/profile.d/vte.sh
+fi

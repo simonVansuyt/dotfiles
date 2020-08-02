@@ -39,6 +39,7 @@ while true; do
             ;;
     esac
 done
+
 # moving the files to homedirectory
 for file in .{bash_profile,bashrc,bash_prompt,aliases,exports,functions,extra}; do
     # adding while so you don't skip some important files
