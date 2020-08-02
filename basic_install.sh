@@ -1,5 +1,16 @@
 #!/bin/bash
+# BASIC INSTALL
 # this script makes a backup of the dotfiles and install the new
+#
+# [*] backup  and repalce the folowing files
+#  - .bash_profile
+#  - .bashrc
+#  - .bash_prompt
+#  - .aliases
+#  - .exports
+#  - .funtions
+#  - .extra
+
 # backup current files
 while true; do
     # asking the question 
