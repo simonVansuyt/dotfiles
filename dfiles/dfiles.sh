@@ -10,18 +10,23 @@ while true; do
     case $resp in
         [yY])
             # he said yes
-            echo -e "\x1B[0;33m [*] \x1B[0mCopy files to ~/.backup"
-            # check if there isn't exist a backup folder
-            if [ ! -d "~/.backup" ]
+            echo -e "\x1B[0;33m [*] \x1B[0mCopy files to $HOME/.backup"
+            # check if there isn't exist a backup directory
+            if [ ! -d $HOME/.backup ]
             then
-                # Create a .backup file
-                echo -e "Creating a the directory ~/.backup"
-                mkdir ~/.backup
+                # Create a .backup directory
+                echo -e "Creating the directory $HOME/.backup"
+                mkdir $HOME/.backup
             fi
             for file in .{bash_profile,bashrc,bash_prompt,aliases,exports,functions,extra}; do
                 # moving the files
-                cp -f ~/${file} ~/.backup/${file}
-                echo -e "\x1B[0;32m [*] \x1B[0mAllons-y copied ${file}!"
+                cp -f $HOME/${file} $HOME/.backup/${file}
+                if [ $? -eq 0 ] # check if copied worked
+                then
+                    echo -e "\x1B[0;32m [*] \x1B[0mAllons-y copied ${file}!"
+                else 
+                    echo -e "\x1B[0;31m [*] \x1B[0m Somthing went wrong, didn't copied ${file}!"
+                fi
             done
             break;;
         [nN])
@@ -48,7 +53,7 @@ for file in .{bash_profile,bashrc,bash_prompt,aliases,exports,functions,extra}; 
                 # he said yes
                 echo -e "\x1B[0;32m [*] \x1B[0mAllons-y, Geronimo!"
                 # moving the file
-                cp -f ./${file} ~/${file}
+                cp -f ./${file} $HOME/${file}
                 break;;
             [nN])
                 # he said no
@@ -62,4 +67,4 @@ for file in .{bash_profile,bashrc,bash_prompt,aliases,exports,functions,extra}; 
     done
 done
 
-source ~/.bash_profile
+source $HOME/.bash_profile
