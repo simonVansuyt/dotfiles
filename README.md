@@ -13,3 +13,5 @@ This will copy the following dotfiles from the ./dotfiles folder to the home dir
 - .exports
 - .functions
 - .extra
+## Vim instalation
+The script ``vim_instsall.sh`` copies the vim files.

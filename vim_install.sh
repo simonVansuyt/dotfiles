@@ -5,7 +5,7 @@ installVimFiles() {
     # copy the files to to homedirectory
     # coping the .vim folder en .vimrc
     if [ -f ./.vimrc ] && [ -d ./.vim ]; then
-        cp -f -r ./.vimrc ./.vim $HOME/test
+        cp -f -r ./vim/.vimrc ./.vim $HOME/test
         # install vim-plug
         # https://github.com/junegunn/vim-plug
         curl -fLo $HOME/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
